@@ -1,0 +1,51 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`htmlBookmarkParser > parses Chrome and Firefox exports into equivalent structure 1`] = `
+{
+  "children": [
+    {
+      "children": [
+        {
+          "description": undefined,
+          "name": "Google",
+          "type": "bookmark",
+          "url": "https://www.google.com/?zx=1781208870868",
+        },
+        {
+          "children": [
+            {
+              "description": undefined,
+              "name": "GitHub · Change is constant. GitHub keeps you ahead. · GitHub",
+              "type": "bookmark",
+              "url": "https://github.com/",
+            },
+            {
+              "children": [
+                {
+                  "description": undefined,
+                  "name": "Product Hunt – The best new products in tech.",
+                  "type": "bookmark",
+                  "url": "https://www.producthunt.com/",
+                },
+                {
+                  "children": [],
+                  "name": "empty-folder",
+                  "type": "folder",
+                },
+              ],
+              "name": "product",
+              "type": "folder",
+            },
+          ],
+          "name": "dev",
+          "type": "folder",
+        },
+      ],
+      "name": "Bookmarks Toolbar",
+      "type": "folder",
+    },
+  ],
+  "name": "",
+  "type": "folder",
+}
+`;
