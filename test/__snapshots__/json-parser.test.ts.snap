@@ -1,105 +1,170 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`jsonBookmarkParser > flatten snapshots 1`] = `
+"[
+  {
+    "type": "folder",
+    "id": "2",
+    "name": "menu",
+    "children": []
+  },
+  {
+    "type": "folder",
+    "id": "3",
+    "name": "toolbar",
+    "children": []
+  },
+  {
+    "type": "bookmark",
+    "id": "12",
+    "name": "Google",
+    "url": "https://www.google.com/?zx=1781208870868",
+    "addDate": "1781208873962000",
+    "lastModified": "1781208873962000"
+  },
+  {
+    "type": "folder",
+    "id": "13",
+    "name": "dev",
+    "children": [],
+    "prevNode": "toolbar"
+  },
+  {
+    "type": "bookmark",
+    "id": "14",
+    "name": "GitHub · Change is constant. GitHub keeps you ahead. · GitHub",
+    "url": "https://github.com/",
+    "addDate": "1781208891909000",
+    "lastModified": "1781208891909000",
+    "iconUri": "https://github.githubassets.com/favicons/favicon.svg"
+  },
+  {
+    "type": "folder",
+    "id": "15",
+    "name": "product",
+    "children": [],
+    "prevNode": "dev"
+  },
+  {
+    "type": "bookmark",
+    "id": "16",
+    "name": "Product Hunt – The best new products in tech.",
+    "url": "https://www.producthunt.com/",
+    "addDate": "1781208934370000",
+    "lastModified": "1781208934370000",
+    "iconUri": "https://ph-static.imgix.net/ph-favicon-brand-500.svg"
+  },
+  {
+    "type": "folder",
+    "id": "17",
+    "name": "empty-folder",
+    "children": [],
+    "prevNode": "product"
+  },
+  {
+    "type": "folder",
+    "id": "5",
+    "name": "unfiled",
+    "children": []
+  },
+  {
+    "type": "folder",
+    "id": "6",
+    "name": "mobile",
+    "children": []
+  }
+]"
+`;
+
 exports[`jsonBookmarkParser > snapshots 1`] = `
-{
-  "addDate": "1781208849342000",
-  "children": [
-    {
-      "addDate": "1781208849342000",
-      "children": [],
-      "id": "2",
-      "lastModified": "1781215255459000",
-      "name": "menu",
-      "prevNode": [Circular],
-      "type": "folder",
-    },
-    {
-      "addDate": "1781208849342000",
-      "children": [
-        {
-          "addDate": "1781208873962000",
-          "id": "12",
-          "lastModified": "1781208873962000",
-          "name": "Google",
-          "type": "bookmark",
-          "url": "https://www.google.com/?zx=1781208870868",
-        },
-        {
-          "addDate": "1781208879204000",
-          "children": [
-            {
-              "addDate": "1781208891909000",
-              "iconUri": "https://github.githubassets.com/favicons/favicon.svg",
-              "id": "14",
-              "lastModified": "1781208891909000",
-              "name": "GitHub · Change is constant. GitHub keeps you ahead. · GitHub",
-              "type": "bookmark",
-              "url": "https://github.com/",
-            },
-            {
-              "addDate": "1781208904770000",
-              "children": [
-                {
-                  "addDate": "1781208934370000",
-                  "iconUri": "https://ph-static.imgix.net/ph-favicon-brand-500.svg",
-                  "id": "16",
-                  "lastModified": "1781208934370000",
-                  "name": "Product Hunt – The best new products in tech.",
-                  "type": "bookmark",
-                  "url": "https://www.producthunt.com/",
-                },
-                {
-                  "addDate": "1781208966481000",
-                  "children": [],
-                  "id": "17",
-                  "lastModified": "1781208970480000",
-                  "name": "empty-folder",
-                  "prevNode": [Circular],
-                  "type": "folder",
-                },
-              ],
-              "id": "15",
-              "lastModified": "1781208970480000",
-              "name": "product",
-              "prevNode": [Circular],
-              "type": "folder",
-            },
-          ],
-          "id": "13",
-          "lastModified": "1781208970480000",
-          "name": "dev",
-          "prevNode": [Circular],
-          "type": "folder",
-        },
-      ],
-      "id": "3",
-      "lastModified": "1781208970480000",
-      "name": "toolbar",
-      "prevNode": [Circular],
-      "type": "folder",
-    },
-    {
-      "addDate": "1781208849342000",
-      "children": [],
-      "id": "5",
-      "lastModified": "1781208849503000",
-      "name": "unfiled",
-      "prevNode": [Circular],
-      "type": "folder",
-    },
-    {
-      "addDate": "1781208849362000",
-      "children": [],
-      "id": "6",
-      "lastModified": "1781208849503000",
-      "name": "mobile",
-      "prevNode": [Circular],
-      "type": "folder",
-    },
-  ],
-  "id": "1",
-  "lastModified": "1781215255459000",
-  "name": "",
-  "type": "folder",
-}
+[
+  {
+    "addDate": "1781208849342000",
+    "children": [],
+    "id": "2",
+    "lastModified": "1781215255459000",
+    "name": "menu",
+    "type": "folder",
+  },
+  {
+    "addDate": "1781208849342000",
+    "children": [
+      {
+        "addDate": "1781208873962000",
+        "id": "12",
+        "lastModified": "1781208873962000",
+        "name": "Google",
+        "type": "bookmark",
+        "url": "https://www.google.com/?zx=1781208870868",
+      },
+      {
+        "addDate": "1781208879204000",
+        "children": [
+          {
+            "addDate": "1781208891909000",
+            "iconUri": "https://github.githubassets.com/favicons/favicon.svg",
+            "id": "14",
+            "lastModified": "1781208891909000",
+            "name": "GitHub · Change is constant. GitHub keeps you ahead. · GitHub",
+            "type": "bookmark",
+            "url": "https://github.com/",
+          },
+          {
+            "addDate": "1781208904770000",
+            "children": [
+              {
+                "addDate": "1781208934370000",
+                "iconUri": "https://ph-static.imgix.net/ph-favicon-brand-500.svg",
+                "id": "16",
+                "lastModified": "1781208934370000",
+                "name": "Product Hunt – The best new products in tech.",
+                "type": "bookmark",
+                "url": "https://www.producthunt.com/",
+              },
+              {
+                "addDate": "1781208966481000",
+                "children": [],
+                "id": "17",
+                "lastModified": "1781208970480000",
+                "name": "empty-folder",
+                "prevNode": [Circular],
+                "type": "folder",
+              },
+            ],
+            "id": "15",
+            "lastModified": "1781208970480000",
+            "name": "product",
+            "prevNode": [Circular],
+            "type": "folder",
+          },
+        ],
+        "id": "13",
+        "lastModified": "1781208970480000",
+        "name": "dev",
+        "prevNode": [Circular],
+        "type": "folder",
+      },
+    ],
+    "id": "3",
+    "lastModified": "1781208970480000",
+    "name": "toolbar",
+    "type": "folder",
+  },
+  {
+    "addDate": "1781208849342000",
+    "children": [],
+    "id": "5",
+    "lastModified": "1781208849503000",
+    "name": "unfiled",
+    "type": "folder",
+  },
+  {
+    "addDate": "1781208849362000",
+    "children": [],
+    "id": "6",
+    "lastModified": "1781208849503000",
+    "name": "mobile",
+    "type": "folder",
+  },
+]
 `;

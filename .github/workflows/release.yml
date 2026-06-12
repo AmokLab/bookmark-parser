@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -24,6 +27,11 @@ jobs:
       - name: Build plugin
         run: pnpm build
 
+      - name: Get package version
+        id: version
+        run: |
+          echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+
       - name: Check if tag exists
         id: tagcheck
         run: |
@@ -34,23 +42,20 @@ jobs:
             echo "exists=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Create release archive
+      - name: Create and release
+        if: steps.tagcheck.outputs.exists == 'false'
+        uses: ncipollo/release-action@v1
+        with:
+          tag: v${{ steps.version.outputs.version }}
+
+      - name: Creating .npmrc
         if: steps.tagcheck.outputs.exists == 'false'
         run: |
-          NAME=$(node -p "require('./package.json').name")
-          VERSION=$(node -p "require('./package.json').version")
-          ZIP_NAME="${NAME}-${VERSION}.zip"
-
-          cd dist
-          zip -r "../$ZIP_NAME" .
-
-          echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
-
-      - name: Publish GitHub release
-        if: steps.tagcheck.outputs.exists == 'false'
-        uses: softprops/action-gh-release@v3
-        with:
-          files: ${{ env.ZIP_NAME }}
+          cat << EOF > "$HOME/.npmrc"
+            //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          EOF
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish to npm
         if: steps.tagcheck.outputs.exists == 'false'

@@ -1,4 +1,6 @@
-import { Bookmark, BookmarkFolder } from '@/types/bookmark.type';
+import { BookmarkEntry, BookmarkFolder, BookmarkNode } from '@/types/bookmark.type';
+import { ParserOptions } from '@/types/parser-options';
+import { flattenBookmark } from '@/utils/flatten-bookmark';
 
 type HtmlNodeKind = 'bookmark' | 'folder' | 'description';
 
@@ -60,8 +62,13 @@ const createFolder = (
   return folder;
 };
 
-const createBookmark = (id: string, name: string, attrs: Record<string, string>, parent?: BookmarkFolder): Bookmark => {
-  const bookmark: Bookmark = {
+const createBookmark = (
+  id: string,
+  name: string,
+  attrs: Record<string, string>,
+  parent?: BookmarkFolder,
+): BookmarkEntry => {
+  const bookmark: BookmarkEntry = {
     type: 'bookmark',
     id,
     name,
@@ -90,7 +97,7 @@ const parseTag = (token: string): { name: string; attrs: Record<string, string> 
   };
 };
 
-export const htmlBookmarkParser = (text: string): BookmarkFolder => {
+export const htmlBookmarkParser = (text: string, options?: ParserOptions): BookmarkNode[] => {
   if (typeof text !== 'string') {
     throw new Error('Input must be a string');
   }
@@ -211,5 +218,11 @@ export const htmlBookmarkParser = (text: string): BookmarkFolder => {
 
   finishActiveNode();
 
-  return root;
+  if (options?.flatten) {
+    return flattenBookmark(root.children, {
+      setPrevNode: options.setPrevNode,
+    });
+  }
+
+  return root.children;
 };

@@ -1,51 +1,125 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`htmlBookmarkParser > parses Chrome and Firefox exports into equivalent structure 1`] = `
-{
-  "children": [
-    {
-      "children": [
-        {
-          "description": undefined,
-          "name": "Google",
-          "type": "bookmark",
-          "url": "https://www.google.com/?zx=1781208870868",
-        },
-        {
-          "children": [
-            {
-              "description": undefined,
-              "name": "GitHub · Change is constant. GitHub keeps you ahead. · GitHub",
-              "type": "bookmark",
-              "url": "https://github.com/",
-            },
-            {
-              "children": [
-                {
-                  "description": undefined,
-                  "name": "Product Hunt – The best new products in tech.",
-                  "type": "bookmark",
-                  "url": "https://www.producthunt.com/",
-                },
-                {
-                  "children": [],
-                  "name": "empty-folder",
-                  "type": "folder",
-                },
-              ],
-              "name": "product",
-              "type": "folder",
-            },
-          ],
-          "name": "dev",
-          "type": "folder",
-        },
-      ],
-      "name": "Bookmarks Toolbar",
+exports[`htmlBookmarkParser > flatten snapshots 1`] = `
+"[
+  {
+    "type": "folder",
+    "id": "1",
+    "name": "Bookmarks Toolbar",
+    "children": [],
+    "prevNode": ""
+  },
+  {
+    "type": "bookmark",
+    "id": "2",
+    "name": "Google",
+    "url": "https://www.google.com/?zx=1781208870868",
+    "addDate": "1781208873",
+    "iconUri": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC60lEQVR4nFRTz0tUURT+zn3vzaTOKCqmmaEJtZQW/qhRKvqxCiSbpKRVi5ZSG4mCNi2L2lj/QRQ1TVDRIhE0XIQEIYMQST+UyjJHZ8aZcZx5793TeW/U6j4eXO4993zf+c53FGQxM2FzseOcZceOu8xrWi6839vLedy7247bfEPeRhbnmBurmEdBNOhHuC5QLLK/DwQIprn1NpYHhkNES/7bzWwNYD0OUh3IZlw8fgC8nVacSkuAAa5rYI70aYqeBtVUywEnBOiEAC/7DMBuDGREsThXwt3LFt5/E/Sg/MJCBcE7aqBtDRzshnH7pi1sApIk7rE1heoADHlc/OXg9aAFnSTsqmdu7iR0RMBkQr+bAX78Zlw4R1oZlqA6gh4V8gPEuvicEeinr1cdzNwysFgHNF0hDFwDGyb8Gu0CsLIq57u3lBb1TE+fl5KAM4ATxsdO8GqCoA8AvdMSYIFLJSykFLQISJ6GRQ0pBKEgcVONVM7IehDV7OTB9hKUJYo0HSeGBcU28mzh4kMgU2AYiqFE0lwJfGwf073zgkFUvd0baA1X+LJgKI+l3x2gYDPWHUmpCAGJLmlCyQtEucOmYK6RURl2zXrkNpYpnR5DW4vtl2CaNu6IdZR87CrceMVIrTOFK4SkUNeaswJmT0p+SlWfcj+I5aays/zsy3W42kaFaaGv3UKk3cBMPonPnOSStcHdbdr10B2mSa8jZwAjXrSXnViix5jKztMnauWaUD911R4VfwXx5mcOE/M7WGeaqSe0h8eGdrpVQTLFrFHfSOL2GImRvudnSyOzl6yJbAErbjMc15JSKwSqUcTYixYx6pMjXfahxnBAyMYNMdK2lWVsxkmsnLLT7v2FGF4k59RSMU9aK9SaDXw4FNEj+3vRWlVpaEZCNP1rZW+YZJoauYpHCeVhstnFhpYWiNpBZVGAyg2Tgxjl88MUCv03TH6SsjAyzsxDJoyT0uhwucWccwhjEvPIJHr675s/AAAA//+MVvV7AAAABklEQVQDAB5cl68baz6yAAAAAElFTkSuQmCC",
+    "prevNode": {
       "type": "folder",
-    },
-  ],
-  "name": "",
-  "type": "folder",
-}
+      "id": "1",
+      "name": "Bookmarks Toolbar",
+      "children": [],
+      "prevNode": ""
+    }
+  },
+  {
+    "type": "folder",
+    "id": "3",
+    "name": "dev",
+    "children": [],
+    "prevNode": "Bookmarks Toolbar"
+  },
+  {
+    "type": "bookmark",
+    "id": "4",
+    "name": "GitHub · Change is constant. GitHub keeps you ahead. · GitHub",
+    "url": "https://github.com/",
+    "addDate": "1781208891",
+    "iconUri": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABtklEQVR4nIyTwStEURSH73szZCiFopTFlM00CzYayp9gpxTFQtkQZcfeghQLC81kFvakLEjZDCuJsLCYwoxig5JixpiZ5zszZ+r2snDq6517z/ndd96557kG8zzPMWr4A5CEe/iCnPpbEDM+s4V1PJZhGhpq2768HGzAouM45UoAoctTxDswZP5nuzAKJVdPWlHxMYxBCj4hCxn1TzV2CMOwJFqpoF8FAYizOcNeEL8D3vSNrfBKrEBsHX8WvmFQEqegXhOLJMhBJZKfrJKfpdEaK+rLGmFSNtM43ZCHXoRp7YuH72mDK02UNRbGvYEmuJbETu3yCzxoYrkmrgmt9aNUpH7YVbGnJ4bsmfCbxuSKm1UXcLXTYm0Q0zKDvuGSzaBWIU1v15dmXb0eo1cl0xYhsfjHJ0iDo6Y6SEYrOJED4rpIwgXckrgHPVYFUdjGPYMIyOwUICFlXRLcZDEHfXAntwEf1ufLDU2oL+McgjW0V/YoH0EXLECG4LlVgTQuY6rDJbYPI/Dj+JISMK5bLRzyrjHpuvglzZmXqZRYsNZlrFKm/Lam+l/krU+QsV2FA/JSlsb7BQAA//8fGtSHAAAABklEQVQDAIsg4TDVy+61AAAAAElFTkSuQmCC",
+    "prevNode": {
+      "type": "folder",
+      "id": "3",
+      "name": "dev",
+      "children": [],
+      "prevNode": "Bookmarks Toolbar"
+    }
+  },
+  {
+    "type": "folder",
+    "id": "5",
+    "name": "product",
+    "children": [],
+    "prevNode": "dev"
+  },
+  {
+    "type": "bookmark",
+    "id": "6",
+    "name": "Product Hunt – The best new products in tech.",
+    "url": "https://www.producthunt.com/",
+    "addDate": "1781208934",
+    "iconUri": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACd0lEQVR4nHRTz2sTQRT+ZnY2u0lEwfSgVkFBrP4FakGNZ5Gg4k2xop7EgyL4AzxbCypIC2J70EM9FC1WxIsHU1RQIR689ODBikQ9qCCVZHezO+M3sw22gT4y2d33+3vfGwWKAYRwD/4NHd7FzzN83c+zDrn84HlJ67i4P/0WS0R0X0y1qrClb5iqs/C9EGlGpVn0opvngbqIylF8/HxVNBodZ6KLxFC1AFSmEAYHEcUGWjMa3tJKUF7GHj0EvkCczMCfP4p7jVQytwbWjuTBScJqBsWSQrkMhEWgWMyfUaSY2CDqJAiCGuLNNyxsYY7XdkL5rxgo6WAhSVy8ZrB1QKAQ5O0nMfDiucGjSWvXkNIQnkaaDCpiOwmlfKSd1AUbAi+VBZMBr+t0J5r+TcCBQwLtFpM8FFhV1ozzYdRpxQp7kWWWCBss3OCkBL5/A+4M5/htJyNjwO49As+mgUzT15G3T9G8MW/d/RYZtUOjqdJnnYH1G4DVa4DmV7hivi9cMYF+hV6x8TExb9sB3J38r++QtZkpJiDSAkmzEOmqWLPJlgccdo7H7ZPHx98F4MN7wiGbC3+Ad2+AT3NkpGTnox1MrZvswMxyINs5xAy2KTKFIBT4/RMYu5l3ZAfpFyydxlW2pTyPtGazki1NIE07nKFwWy0YEbUNYi5dqZQfiz8MjcNtfSR9bIzR425g5sSRWygG5/NFIqxCIJ2j5X/52mtqU4QcQju+LR48viDdKrfmLnM9nzqDlXYr5cnvQvfApK4D6xPFTxDMX7KxPZepcp0QzpHCYMXLpPUovvy6Iur1tNvWMjHHaoNMcKrnOnOrUKd1ovc6/wMAAP//X4YvBwAAAAZJREFUAwCY9g4VjIFkIgAAAABJRU5ErkJggg==",
+    "prevNode": {
+      "type": "folder",
+      "id": "5",
+      "name": "product",
+      "children": [],
+      "prevNode": "dev"
+    }
+  },
+  {
+    "type": "folder",
+    "id": "7",
+    "name": "empty-folder",
+    "children": [],
+    "prevNode": "product"
+  }
+]"
+`;
+
+exports[`htmlBookmarkParser > parses Chrome and Firefox exports into equivalent structure 1`] = `
+[
+  {
+    "children": [
+      {
+        "description": undefined,
+        "name": "Google",
+        "type": "bookmark",
+        "url": "https://www.google.com/?zx=1781208870868",
+      },
+      {
+        "children": [
+          {
+            "description": undefined,
+            "name": "GitHub · Change is constant. GitHub keeps you ahead. · GitHub",
+            "type": "bookmark",
+            "url": "https://github.com/",
+          },
+          {
+            "children": [
+              {
+                "description": undefined,
+                "name": "Product Hunt – The best new products in tech.",
+                "type": "bookmark",
+                "url": "https://www.producthunt.com/",
+              },
+              {
+                "children": [],
+                "name": "empty-folder",
+                "type": "folder",
+              },
+            ],
+            "name": "product",
+            "type": "folder",
+          },
+        ],
+        "name": "dev",
+        "type": "folder",
+      },
+    ],
+    "name": "Bookmarks Toolbar",
+    "type": "folder",
+  },
+]
 `;

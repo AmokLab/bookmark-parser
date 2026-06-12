@@ -1,6 +1,6 @@
 {
   "name": "@amoklab/bookmark-parser",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Bookmark parser",
   "repository": {
     "type": "git",
@@ -21,7 +21,6 @@
   "scripts": {
     "dev": "tsup --watch --sourcemap --dts",
     "build": "tsup",
-    "build:tsc": "tsc -p tsconfig.json",
     "test": "vitest run",
     "lint": "eslint 'src/**/*.ts' 'test/**/*.ts' 'tsup.config.ts'",
     "format": "prettier --write 'src/**/*.{ts,tsx}' 'src/index.ts' 'test/**/*.ts' 'tsup.config.ts'"

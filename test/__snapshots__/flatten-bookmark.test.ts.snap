@@ -1,0 +1,186 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`flattenBookmark > snapshots 1`] = `
+"[
+  {
+    "type": "folder",
+    "id": "2",
+    "name": "menu",
+    "children": []
+  },
+  {
+    "type": "folder",
+    "id": "3",
+    "name": "toolbar",
+    "children": []
+  },
+  {
+    "type": "bookmark",
+    "id": "12",
+    "name": "Google",
+    "url": "https://www.google.com/?zx=1781208870868",
+    "addDate": "1781208873962000",
+    "lastModified": "1781208873962000"
+  },
+  {
+    "type": "folder",
+    "id": "13",
+    "name": "dev",
+    "children": [],
+    "prevNode": {
+      "type": "folder",
+      "id": "3",
+      "name": "toolbar",
+      "children": []
+    }
+  },
+  {
+    "type": "bookmark",
+    "id": "14",
+    "name": "GitHub · Change is constant. GitHub keeps you ahead. · GitHub",
+    "url": "https://github.com/",
+    "addDate": "1781208891909000",
+    "lastModified": "1781208891909000",
+    "iconUri": "https://github.githubassets.com/favicons/favicon.svg"
+  },
+  {
+    "type": "folder",
+    "id": "15",
+    "name": "product",
+    "children": [],
+    "prevNode": {
+      "type": "folder",
+      "id": "13",
+      "name": "dev",
+      "children": [],
+      "prevNode": {
+        "type": "folder",
+        "id": "3",
+        "name": "toolbar",
+        "children": []
+      }
+    }
+  },
+  {
+    "type": "bookmark",
+    "id": "16",
+    "name": "Product Hunt – The best new products in tech.",
+    "url": "https://www.producthunt.com/",
+    "addDate": "1781208934370000",
+    "lastModified": "1781208934370000",
+    "iconUri": "https://ph-static.imgix.net/ph-favicon-brand-500.svg"
+  },
+  {
+    "type": "folder",
+    "id": "17",
+    "name": "empty-folder",
+    "children": [],
+    "prevNode": {
+      "type": "folder",
+      "id": "15",
+      "name": "product",
+      "children": [],
+      "prevNode": {
+        "type": "folder",
+        "id": "13",
+        "name": "dev",
+        "children": [],
+        "prevNode": {
+          "type": "folder",
+          "id": "3",
+          "name": "toolbar",
+          "children": []
+        }
+      }
+    }
+  },
+  {
+    "type": "folder",
+    "id": "5",
+    "name": "unfiled",
+    "children": []
+  },
+  {
+    "type": "folder",
+    "id": "6",
+    "name": "mobile",
+    "children": []
+  }
+]"
+`;
+
+exports[`flattenBookmark > use custom previous node to return name 1`] = `
+"[
+  {
+    "type": "folder",
+    "id": "2",
+    "name": "menu",
+    "children": []
+  },
+  {
+    "type": "folder",
+    "id": "3",
+    "name": "toolbar",
+    "children": []
+  },
+  {
+    "type": "bookmark",
+    "id": "12",
+    "name": "Google",
+    "url": "https://www.google.com/?zx=1781208870868",
+    "addDate": "1781208873962000",
+    "lastModified": "1781208873962000"
+  },
+  {
+    "type": "folder",
+    "id": "13",
+    "name": "dev",
+    "children": [],
+    "prevNode": "toolbar"
+  },
+  {
+    "type": "bookmark",
+    "id": "14",
+    "name": "GitHub · Change is constant. GitHub keeps you ahead. · GitHub",
+    "url": "https://github.com/",
+    "addDate": "1781208891909000",
+    "lastModified": "1781208891909000",
+    "iconUri": "https://github.githubassets.com/favicons/favicon.svg"
+  },
+  {
+    "type": "folder",
+    "id": "15",
+    "name": "product",
+    "children": [],
+    "prevNode": "dev"
+  },
+  {
+    "type": "bookmark",
+    "id": "16",
+    "name": "Product Hunt – The best new products in tech.",
+    "url": "https://www.producthunt.com/",
+    "addDate": "1781208934370000",
+    "lastModified": "1781208934370000",
+    "iconUri": "https://ph-static.imgix.net/ph-favicon-brand-500.svg"
+  },
+  {
+    "type": "folder",
+    "id": "17",
+    "name": "empty-folder",
+    "children": [],
+    "prevNode": "product"
+  },
+  {
+    "type": "folder",
+    "id": "5",
+    "name": "unfiled",
+    "children": []
+  },
+  {
+    "type": "folder",
+    "id": "6",
+    "name": "mobile",
+    "children": []
+  }
+]"
+`;

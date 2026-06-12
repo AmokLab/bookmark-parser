@@ -1,7 +1,12 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "types": ["vitest/globals", "vite/client"]
   },
-  "include": ["src/**/*", "test/**/*", "**/*.d.ts"]
+  "include": ["src", "test"]
 }

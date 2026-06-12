@@ -6,7 +6,7 @@ export interface BookmarkBase {
   description?: string;
 }
 
-export interface Bookmark extends BookmarkBase {
+export interface BookmarkEntry extends BookmarkBase {
   type: 'bookmark';
   url: string;
   iconUri?: string;
@@ -24,4 +24,4 @@ export interface BookmarkFolder extends BookmarkBase {
   prevNode?: BookmarkFolder;
 }
 
-export type BookmarkNode = Bookmark | BookmarkFolder;
+export type BookmarkNode = BookmarkEntry | BookmarkFolder;

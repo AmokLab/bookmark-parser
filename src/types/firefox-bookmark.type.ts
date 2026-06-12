@@ -17,8 +17,4 @@ interface FirefoxBookmarkFolder extends FirefoxBookmarkBase {
   children?: FirefoxBookmarkNode[];
 }
 
-export interface FirefoxBookmarkRoot extends FirefoxBookmarkFolder {
-  children: FirefoxBookmarkNode[];
-}
-
 export type FirefoxBookmarkNode = FirefoxBookmarkEntry | FirefoxBookmarkFolder;

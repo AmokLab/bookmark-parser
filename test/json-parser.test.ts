@@ -6,18 +6,13 @@ import { BookmarkFolder, jsonBookmarkParser } from '../src/index';
 describe('jsonBookmarkParser', () => {
   const parsed = jsonBookmarkParser(firefoxSample);
   it('parses a Firefox bookmarks export', () => {
-    expect(parsed).toMatchObject({
-      type: 'folder',
-      name: '',
-      children: [
-        { type: 'folder', name: 'menu' },
-        { type: 'folder', name: 'toolbar' },
-        { type: 'folder', name: 'unfiled' },
-        { type: 'folder', name: 'mobile' },
-      ],
-    });
+    expect(parsed).toHaveLength(4);
+    expect(parsed[0]).toMatchObject({ type: 'folder', name: 'menu' });
+    expect(parsed[1]).toMatchObject({ type: 'folder', name: 'toolbar' });
+    expect(parsed[2]).toMatchObject({ type: 'folder', name: 'unfiled' });
+    expect(parsed[3]).toMatchObject({ type: 'folder', name: 'mobile' });
 
-    const toolbar = parsed.children[1] as BookmarkFolder;
+    const toolbar = parsed[1] as BookmarkFolder;
     expect(toolbar.children[0]).toMatchObject({
       type: 'bookmark',
       name: 'Google',
@@ -57,5 +52,14 @@ describe('jsonBookmarkParser', () => {
 
   test('snapshots', () => {
     expect(parsed).toMatchSnapshot();
+  });
+
+  test('flatten snapshots', () => {
+    const parsed = jsonBookmarkParser(firefoxSample, {
+      flatten: true,
+      setPrevNode: (node: BookmarkFolder) => node.name ?? '',
+    });
+    expect(parsed).toHaveLength(10);
+    expect(JSON.stringify(parsed, null, 2)).toMatchSnapshot();
   });
 });

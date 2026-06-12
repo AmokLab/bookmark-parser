@@ -1,8 +1,9 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, test } from 'vitest';
 import chromeSample from '../sample/chrome-sample.html?raw';
 import firefoxSample from '../sample/firefox-sample.html?raw';
 import { BookmarkFolder, BookmarkNode, htmlBookmarkParser } from '../src/index';
 
+/* This method is used to keep only the structure of the parsed node */
 const normalize = (node: BookmarkNode): BookmarkNode => {
   if (node.type === 'folder') {
     return {
@@ -24,15 +25,17 @@ const normalize = (node: BookmarkNode): BookmarkNode => {
   return node as BookmarkNode;
 };
 
+const normalizeNodes = (nodes: BookmarkNode[]): BookmarkNode[] => {
+  return nodes.map(normalize);
+};
+
 describe('htmlBookmarkParser', () => {
   const chromeParsed = htmlBookmarkParser(chromeSample);
   const firefoxParsed = htmlBookmarkParser(firefoxSample);
 
-  const testParsedStructure = (parsed: BookmarkFolder) => {
-    expect(parsed.type).toBe('folder');
-    expect(parsed.name).toBe('');
-    expect(parsed.children.length).toBe(1);
-    const toolbar = parsed.children[0] as BookmarkFolder;
+  const testParsedStructure = (parsed: BookmarkFolder[]) => {
+    expect(parsed).toHaveLength(1);
+    const toolbar = parsed[0] as BookmarkFolder;
     expect(toolbar.type).toBe('folder');
     expect(toolbar.name).toBe('Bookmarks Toolbar');
     expect(toolbar.children.length).toBe(2);
@@ -59,9 +62,9 @@ describe('htmlBookmarkParser', () => {
   };
 
   it('parses Chrome and Firefox exports into equivalent structure', () => {
-    const normalizedChrome = normalize(chromeParsed);
+    const normalizedChrome = normalizeNodes(chromeParsed);
     expect(normalizedChrome).toMatchSnapshot();
-    expect(normalize(firefoxParsed)).toEqual(normalize(chromeParsed));
+    expect(normalizeNodes(firefoxParsed)).toEqual(normalizedChrome);
   });
 
   it('parse chrome export correctly', () => {
@@ -70,5 +73,14 @@ describe('htmlBookmarkParser', () => {
 
   it('parse firefox export correctly', () => {
     testParsedStructure(firefoxParsed);
+  });
+
+  test('flatten snapshots', () => {
+    const chromeParsed = htmlBookmarkParser(chromeSample, {
+      flatten: true,
+      setPrevNode: (node: BookmarkFolder) => node.name ?? '',
+    });
+    expect(chromeParsed).toHaveLength(7);
+    expect(JSON.stringify(chromeParsed, null, 2)).toMatchSnapshot();
   });
 });

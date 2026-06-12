@@ -1,5 +1,7 @@
-import { Bookmark, BookmarkFolder, BookmarkNode } from '@/types/bookmark.type';
-import { FirefoxBookmarkNode, FirefoxBookmarkRoot } from '@/types/firefox-bookmark.type';
+import { BookmarkEntry, BookmarkFolder, BookmarkNode } from '@/types/bookmark.type';
+import { FirefoxBookmarkNode } from '@/types/firefox-bookmark.type';
+import { ParserOptions } from '@/types/parser-options';
+import { flattenBookmark } from '@/utils/flatten-bookmark';
 
 const toBookmarkDate = (value?: number | string): string | undefined => {
   if (typeof value !== 'number') {
@@ -15,7 +17,7 @@ const parseBookmarkNode = (node: FirefoxBookmarkNode, parent?: BookmarkFolder): 
       throw new Error('Invalid Firefox bookmark URL');
     }
 
-    const bookmark: Bookmark = {
+    const bookmark: BookmarkEntry = {
       type: 'bookmark',
       id: String(node.id),
       name: node.title ?? '',
@@ -46,7 +48,11 @@ const parseBookmarkNode = (node: FirefoxBookmarkNode, parent?: BookmarkFolder): 
   return folder;
 };
 
-export const jsonBookmarkParser = (text: string): BookmarkFolder => {
+const parseBookmarkNodes = (nodes: FirefoxBookmarkNode[], parent?: BookmarkFolder): BookmarkNode[] => {
+  return nodes.map((node) => parseBookmarkNode(node, parent));
+};
+
+export const jsonBookmarkParser = (text: string, options?: ParserOptions): BookmarkNode[] => {
   if (typeof text !== 'string') {
     throw new Error('Input must be a string');
   }
@@ -63,11 +69,21 @@ export const jsonBookmarkParser = (text: string): BookmarkFolder => {
     throw new Error('Parsed bookmark data is not an object');
   }
 
-  const data = parsed as Partial<FirefoxBookmarkRoot>;
+  const data = parsed as {
+    children: FirefoxBookmarkNode[];
+  };
 
-  if (data.typeCode !== 2 || !Array.isArray(data.children)) {
+  if (!Array.isArray(data.children)) {
     throw new Error('Missing Firefox bookmarks root node');
   }
 
-  return parseBookmarkNode(data as FirefoxBookmarkRoot) as BookmarkFolder;
+  const result = parseBookmarkNodes(data.children);
+
+  if (options?.flatten) {
+    return flattenBookmark(result, {
+      setPrevNode: options.setPrevNode,
+    });
+  }
+
+  return result;
 };
