@@ -8,7 +8,7 @@ interface HtmlActiveNode {
   kind: HtmlNodeKind;
   attrs: Record<string, string>;
   text: string;
-  parentFolder: BookmarkFolder;
+  parentFolder?: BookmarkFolder;
 }
 
 const decodeHtmlEntities = (text: string): string =>
@@ -102,14 +102,8 @@ export const htmlBookmarkParser = (text: string, options?: ParserOptions): Bookm
     throw new Error('Input must be a string');
   }
 
-  const root: BookmarkFolder = {
-    type: 'folder',
-    id: 'root',
-    name: '',
-    children: [],
-  };
-
-  const folderStack: BookmarkFolder[] = [root];
+  const result: BookmarkNode[] = [];
+  const folderStack: BookmarkFolder[] = [];
 
   const tokens = text.match(/<!--[\s\S]*?-->|<!doctype[\s\S]*?>|<\/?[A-Za-z][^>]*>|[^<]+/gi) ?? [];
 
@@ -132,17 +126,26 @@ export const htmlBookmarkParser = (text: string, options?: ParserOptions): Bookm
       return;
     }
 
+    const appendNode = (node: BookmarkNode): void => {
+      if (parent) {
+        parent.children.push(node);
+        return;
+      }
+
+      result.push(node);
+    };
+
     switch (activeNode.kind) {
       case 'bookmark': {
         const bookmark = createBookmark(createNodeId(), textValue, activeNode.attrs, parent);
-        parent.children.push(bookmark);
+        appendNode(bookmark);
         break;
       }
 
       case 'folder': {
         const folder = createFolder(createNodeId(), textValue, activeNode.attrs, parent);
 
-        parent.children.push(folder);
+        appendNode(folder);
 
         // Wait for the following <DL>
         pendingFolder = folder;
@@ -151,7 +154,7 @@ export const htmlBookmarkParser = (text: string, options?: ParserOptions): Bookm
       }
 
       case 'description': {
-        const last = parent.children[parent.children.length - 1];
+        const last = parent ? parent.children[parent.children.length - 1] : result[result.length - 1];
 
         if (last) {
           last.description = textValue;
@@ -176,7 +179,7 @@ export const htmlBookmarkParser = (text: string, options?: ParserOptions): Bookm
         finishActiveNode();
       }
 
-      if (tagName === 'dl' && folderStack.length > 1) {
+      if (tagName === 'dl' && folderStack.length > 0) {
         folderStack.pop();
       }
 
@@ -219,10 +222,10 @@ export const htmlBookmarkParser = (text: string, options?: ParserOptions): Bookm
   finishActiveNode();
 
   if (options?.flatten) {
-    return flattenBookmark(root.children, {
+    return flattenBookmark(result, {
       setPrevNode: options.setPrevNode,
     });
   }
 
-  return root.children;
+  return result;
 };

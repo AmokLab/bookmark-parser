@@ -7,7 +7,8 @@ exports[`htmlBookmarkParser > flatten snapshots 1`] = `
     "id": "1",
     "name": "Bookmarks Toolbar",
     "children": [],
-    "prevNode": ""
+    "addDate": "1781212106",
+    "lastModified": "0"
   },
   {
     "type": "bookmark",
@@ -21,7 +22,8 @@ exports[`htmlBookmarkParser > flatten snapshots 1`] = `
       "id": "1",
       "name": "Bookmarks Toolbar",
       "children": [],
-      "prevNode": ""
+      "addDate": "1781212106",
+      "lastModified": "0"
     }
   },
   {
@@ -29,6 +31,8 @@ exports[`htmlBookmarkParser > flatten snapshots 1`] = `
     "id": "3",
     "name": "dev",
     "children": [],
+    "addDate": "1781215657",
+    "lastModified": "0",
     "prevNode": "Bookmarks Toolbar"
   },
   {
@@ -43,6 +47,8 @@ exports[`htmlBookmarkParser > flatten snapshots 1`] = `
       "id": "3",
       "name": "dev",
       "children": [],
+      "addDate": "1781215657",
+      "lastModified": "0",
       "prevNode": "Bookmarks Toolbar"
     }
   },
@@ -51,6 +57,8 @@ exports[`htmlBookmarkParser > flatten snapshots 1`] = `
     "id": "5",
     "name": "product",
     "children": [],
+    "addDate": "1781215657",
+    "lastModified": "1781215669",
     "prevNode": "dev"
   },
   {
@@ -65,6 +73,8 @@ exports[`htmlBookmarkParser > flatten snapshots 1`] = `
       "id": "5",
       "name": "product",
       "children": [],
+      "addDate": "1781215657",
+      "lastModified": "1781215669",
       "prevNode": "dev"
     }
   },
@@ -73,6 +83,8 @@ exports[`htmlBookmarkParser > flatten snapshots 1`] = `
     "id": "7",
     "name": "empty-folder",
     "children": [],
+    "addDate": "1781215669",
+    "lastModified": "1781215669",
     "prevNode": "product"
   }
 ]"

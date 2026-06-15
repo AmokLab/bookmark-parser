@@ -24,6 +24,7 @@ const parseBookmarkNode = (node: FirefoxBookmarkNode, parent?: BookmarkFolder): 
       url: node.uri,
       addDate: toBookmarkDate(node.dateAdded),
       lastModified: toBookmarkDate(node.lastModified),
+      prevNode: parent,
     };
 
     if (typeof node.iconUri === 'string') {
@@ -74,7 +75,7 @@ export const jsonBookmarkParser = (text: string, options?: ParserOptions): Bookm
   };
 
   if (!Array.isArray(data.children)) {
-    throw new Error('Missing Firefox bookmarks root node');
+    throw new Error('Missing Firefox bookmark data');
   }
 
   const result = parseBookmarkNodes(data.children);

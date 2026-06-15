@@ -21,9 +21,9 @@ const copyFolderMetadata = (
     name: folder.name,
     children: [],
   };
-  folder.addDate = folder.addDate ?? folder.addDate;
-  folder.lastModified = folder.lastModified ?? folder.lastModified;
-  folder.description = folder.description ?? folder.description;
+  flattenedFolder.addDate = folder.addDate;
+  flattenedFolder.lastModified = folder.lastModified;
+  flattenedFolder.description = folder.description;
 
   if (previousFolder) {
     flattenedFolder.prevNode = options?.setPrevNode ? options.setPrevNode(previousFolder) : previousFolder;
