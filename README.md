@@ -14,7 +14,7 @@ The package exports:
 
 - `htmlBookmarkParser(text, options?)`
 - `jsonBookmarkParser(text, options?)`
-- `flattenBookmark(root, options?)`
+- `flattenBookmark(nodes, options?)`
 - `BookmarkEntry`
 - `BookmarkFolder`
 - `BookmarkNode`
@@ -65,12 +65,12 @@ const flattened = htmlBookmarkParser(bookmarksHtmlText, {
 
 ```ts
 export interface ParserOptions {
-  flatten: boolean;
-  setPrevNode: (node: BookmarkNode) => any;
+  flatten?: boolean;
+  setPrevNode?: (node: BookmarkNode) => any;
 }
 ```
 
 - `flatten`: when `true`, parsers return a flattened bookmark array
 - `setPrevNode`: optional hook that transforms the `prevNode` object used during parsing flattening
 
-`flattenBookmark(root, options?)` accepts the `setPrevNode` hook only and still returns a flat preorder list.
+`flattenBookmark(nodes, options?)` accepts the `setPrevNode` hook only and still returns a flat preorder list.

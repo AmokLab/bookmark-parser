@@ -6,13 +6,17 @@ exports[`flattenBookmark > snapshots 1`] = `
     "type": "folder",
     "id": "2",
     "name": "menu",
-    "children": []
+    "children": [],
+    "addDate": "1781208849342000",
+    "lastModified": "1781215255459000"
   },
   {
     "type": "folder",
     "id": "3",
     "name": "toolbar",
-    "children": []
+    "children": [],
+    "addDate": "1781208849342000",
+    "lastModified": "1781208970480000"
   },
   {
     "type": "bookmark",
@@ -20,18 +24,30 @@ exports[`flattenBookmark > snapshots 1`] = `
     "name": "Google",
     "url": "https://www.google.com/?zx=1781208870868",
     "addDate": "1781208873962000",
-    "lastModified": "1781208873962000"
+    "lastModified": "1781208873962000",
+    "prevNode": {
+      "type": "folder",
+      "id": "3",
+      "name": "toolbar",
+      "children": [],
+      "addDate": "1781208849342000",
+      "lastModified": "1781208970480000"
+    }
   },
   {
     "type": "folder",
     "id": "13",
     "name": "dev",
     "children": [],
+    "addDate": "1781208879204000",
+    "lastModified": "1781208970480000",
     "prevNode": {
       "type": "folder",
       "id": "3",
       "name": "toolbar",
-      "children": []
+      "children": [],
+      "addDate": "1781208849342000",
+      "lastModified": "1781208970480000"
     }
   },
   {
@@ -41,23 +57,45 @@ exports[`flattenBookmark > snapshots 1`] = `
     "url": "https://github.com/",
     "addDate": "1781208891909000",
     "lastModified": "1781208891909000",
-    "iconUri": "https://github.githubassets.com/favicons/favicon.svg"
+    "iconUri": "https://github.githubassets.com/favicons/favicon.svg",
+    "prevNode": {
+      "type": "folder",
+      "id": "13",
+      "name": "dev",
+      "children": [],
+      "addDate": "1781208879204000",
+      "lastModified": "1781208970480000",
+      "prevNode": {
+        "type": "folder",
+        "id": "3",
+        "name": "toolbar",
+        "children": [],
+        "addDate": "1781208849342000",
+        "lastModified": "1781208970480000"
+      }
+    }
   },
   {
     "type": "folder",
     "id": "15",
     "name": "product",
     "children": [],
+    "addDate": "1781208904770000",
+    "lastModified": "1781208970480000",
     "prevNode": {
       "type": "folder",
       "id": "13",
       "name": "dev",
       "children": [],
+      "addDate": "1781208879204000",
+      "lastModified": "1781208970480000",
       "prevNode": {
         "type": "folder",
         "id": "3",
         "name": "toolbar",
-        "children": []
+        "children": [],
+        "addDate": "1781208849342000",
+        "lastModified": "1781208970480000"
       }
     }
   },
@@ -68,28 +106,60 @@ exports[`flattenBookmark > snapshots 1`] = `
     "url": "https://www.producthunt.com/",
     "addDate": "1781208934370000",
     "lastModified": "1781208934370000",
-    "iconUri": "https://ph-static.imgix.net/ph-favicon-brand-500.svg"
+    "iconUri": "https://ph-static.imgix.net/ph-favicon-brand-500.svg",
+    "prevNode": {
+      "type": "folder",
+      "id": "15",
+      "name": "product",
+      "children": [],
+      "addDate": "1781208904770000",
+      "lastModified": "1781208970480000",
+      "prevNode": {
+        "type": "folder",
+        "id": "13",
+        "name": "dev",
+        "children": [],
+        "addDate": "1781208879204000",
+        "lastModified": "1781208970480000",
+        "prevNode": {
+          "type": "folder",
+          "id": "3",
+          "name": "toolbar",
+          "children": [],
+          "addDate": "1781208849342000",
+          "lastModified": "1781208970480000"
+        }
+      }
+    }
   },
   {
     "type": "folder",
     "id": "17",
     "name": "empty-folder",
     "children": [],
+    "addDate": "1781208966481000",
+    "lastModified": "1781208970480000",
     "prevNode": {
       "type": "folder",
       "id": "15",
       "name": "product",
       "children": [],
+      "addDate": "1781208904770000",
+      "lastModified": "1781208970480000",
       "prevNode": {
         "type": "folder",
         "id": "13",
         "name": "dev",
         "children": [],
+        "addDate": "1781208879204000",
+        "lastModified": "1781208970480000",
         "prevNode": {
           "type": "folder",
           "id": "3",
           "name": "toolbar",
-          "children": []
+          "children": [],
+          "addDate": "1781208849342000",
+          "lastModified": "1781208970480000"
         }
       }
     }
@@ -98,13 +168,17 @@ exports[`flattenBookmark > snapshots 1`] = `
     "type": "folder",
     "id": "5",
     "name": "unfiled",
-    "children": []
+    "children": [],
+    "addDate": "1781208849342000",
+    "lastModified": "1781208849503000"
   },
   {
     "type": "folder",
     "id": "6",
     "name": "mobile",
-    "children": []
+    "children": [],
+    "addDate": "1781208849362000",
+    "lastModified": "1781208849503000"
   }
 ]"
 `;
@@ -115,13 +189,17 @@ exports[`flattenBookmark > use custom previous node to return name 1`] = `
     "type": "folder",
     "id": "2",
     "name": "menu",
-    "children": []
+    "children": [],
+    "addDate": "1781208849342000",
+    "lastModified": "1781215255459000"
   },
   {
     "type": "folder",
     "id": "3",
     "name": "toolbar",
-    "children": []
+    "children": [],
+    "addDate": "1781208849342000",
+    "lastModified": "1781208970480000"
   },
   {
     "type": "bookmark",
@@ -129,13 +207,23 @@ exports[`flattenBookmark > use custom previous node to return name 1`] = `
     "name": "Google",
     "url": "https://www.google.com/?zx=1781208870868",
     "addDate": "1781208873962000",
-    "lastModified": "1781208873962000"
+    "lastModified": "1781208873962000",
+    "prevNode": {
+      "type": "folder",
+      "id": "3",
+      "name": "toolbar",
+      "children": [],
+      "addDate": "1781208849342000",
+      "lastModified": "1781208970480000"
+    }
   },
   {
     "type": "folder",
     "id": "13",
     "name": "dev",
     "children": [],
+    "addDate": "1781208879204000",
+    "lastModified": "1781208970480000",
     "prevNode": "toolbar"
   },
   {
@@ -145,13 +233,24 @@ exports[`flattenBookmark > use custom previous node to return name 1`] = `
     "url": "https://github.com/",
     "addDate": "1781208891909000",
     "lastModified": "1781208891909000",
-    "iconUri": "https://github.githubassets.com/favicons/favicon.svg"
+    "iconUri": "https://github.githubassets.com/favicons/favicon.svg",
+    "prevNode": {
+      "type": "folder",
+      "id": "13",
+      "name": "dev",
+      "children": [],
+      "addDate": "1781208879204000",
+      "lastModified": "1781208970480000",
+      "prevNode": "toolbar"
+    }
   },
   {
     "type": "folder",
     "id": "15",
     "name": "product",
     "children": [],
+    "addDate": "1781208904770000",
+    "lastModified": "1781208970480000",
     "prevNode": "dev"
   },
   {
@@ -161,26 +260,41 @@ exports[`flattenBookmark > use custom previous node to return name 1`] = `
     "url": "https://www.producthunt.com/",
     "addDate": "1781208934370000",
     "lastModified": "1781208934370000",
-    "iconUri": "https://ph-static.imgix.net/ph-favicon-brand-500.svg"
+    "iconUri": "https://ph-static.imgix.net/ph-favicon-brand-500.svg",
+    "prevNode": {
+      "type": "folder",
+      "id": "15",
+      "name": "product",
+      "children": [],
+      "addDate": "1781208904770000",
+      "lastModified": "1781208970480000",
+      "prevNode": "dev"
+    }
   },
   {
     "type": "folder",
     "id": "17",
     "name": "empty-folder",
     "children": [],
+    "addDate": "1781208966481000",
+    "lastModified": "1781208970480000",
     "prevNode": "product"
   },
   {
     "type": "folder",
     "id": "5",
     "name": "unfiled",
-    "children": []
+    "children": [],
+    "addDate": "1781208849342000",
+    "lastModified": "1781208849503000"
   },
   {
     "type": "folder",
     "id": "6",
     "name": "mobile",
-    "children": []
+    "children": [],
+    "addDate": "1781208849362000",
+    "lastModified": "1781208849503000"
   }
 ]"
 `;
